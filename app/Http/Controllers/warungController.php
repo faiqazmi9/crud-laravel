@@ -116,6 +116,7 @@ class warungController extends Controller
      */
     public function destroy($id)
     {
-        //
+        warung::where('id', $id)->delete();
+        return redirect()->to('warung')->with('success', 'Berhasil delete data');
     }
 }
