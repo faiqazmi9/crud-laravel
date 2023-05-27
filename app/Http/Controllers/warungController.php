@@ -13,9 +13,18 @@ class warungController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = warung::orderBy('id', 'desc')->paginate(1);
+        $katakunci = $request->katakunci;
+        $jumlahbaris = 5;
+        if (strlen($katakunci)) {
+            $data = warung::where('id', 'like', "%$katakunci%")
+                ->orWhere('jenis', 'like', "%$katakunci%")
+                ->orWhere('nama', 'like', "%$katakunci%")
+                ->paginate($jumlahbaris);
+        } else {
+            $data = warung::orderBy('id', 'desc')->paginate(($jumlahbaris);
+        }
         return view('warung.index')->with('data', $data);
     }
 
@@ -81,7 +90,7 @@ class warungController extends Controller
     public function edit($id)
     {
         $data = warung::where('id', $id)->first();
-        return view('warung.edit')->with('data' , $data);
+        return view('warung.edit')->with('data', $data);
     }
 
     /**
