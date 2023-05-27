@@ -1,8 +1,9 @@
 @extends('layout.template')
 @section('konten')
     <!-- START FORM -->
-    <form action='{{ url('warung') }}' method='post'>
+    <form action='{{ url('warung/' . $data->id) }}' method='post'>
         @csrf
+        @method('PUT')
         <div class="my-3 p-3 bg-body rounded shadow-sm">
             <a href='{{ url('warung') }}' class="btn btn-secondary">Kembali</a>
             <div class="mb-3 row">
