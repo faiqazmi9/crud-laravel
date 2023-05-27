@@ -16,19 +16,19 @@
         <form action='' method='post'>
             <div class="my-3 p-3 bg-body rounded shadow-sm">
                 <div class="mb-3 row">
-                    <label for="nim" class="col-sm-2 col-form-label">NIM</label>
+                    <label for="nim" class="col-sm-2 col-form-label">ID</label>
                     <div class="col-sm-10">
                         <input type="number" class="form-control" name='nim' id="nim">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                    <label for="nama" class="col-sm-2 col-form-label">Jenis</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name='nama' id="nama">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
+                    <label for="jurusan" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name='jurusan' id="jurusan">
                     </div>
@@ -62,9 +62,9 @@
                 <thead>
                     <tr>
                         <th class="col-md-1">No</th>
-                        <th class="col-md-3">NIM</th>
-                        <th class="col-md-4">Nama</th>
-                        <th class="col-md-2">Jurusan</th>
+                        <th class="col-md-3">ID</th>
+                        <th class="col-md-4">Jenis</th>
+                        <th class="col-md-2">Nama</th>
                         <th class="col-md-2">Aksi</th>
                     </tr>
                 </thead>
