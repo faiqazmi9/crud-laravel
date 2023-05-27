@@ -13,10 +13,11 @@
 
         <!-- TOMBOL TAMBAH DATA -->
         <div class="pb-3">
-            <a href='' class="btn btn-primary">+ Tambah Data</a>
+            <a href='{{ url('warung/create') }}' class="btn btn-primary">+ Tambah Data</a>
         </div>
 
-        <table class="table table-striped">
+        <table class="table table-striped"> <!-- Tabel Data Warung -->
+            <caption>Tabel Data Warung</caption>
             <thead>
                 <tr>
                     <th class="col-md-1">No</th>
