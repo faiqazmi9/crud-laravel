@@ -13,7 +13,7 @@ class warungController extends Controller
      */
     public function index()
     {
-        //
+        return view('warung.index');
     }
 
     /**
