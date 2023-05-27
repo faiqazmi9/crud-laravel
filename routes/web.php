@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\warungController;
+use App\Http\Controllers\WarungController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('warung', warungController::class);
+Route::resource('warung', WarungController::class);

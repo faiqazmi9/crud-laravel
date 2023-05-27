@@ -6,7 +6,7 @@ use App\Models\warung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class warungController extends Controller
+class WarungController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class warungController extends Controller
                 ->orWhere('nama', 'like', "%$katakunci%")
                 ->paginate($jumlahbaris);
         } else {
-            $data = warung::orderBy('id', 'desc')->paginate(($jumlahbaris);
+            $data = warung::orderBy('id', 'desc')->paginate($jumlahbaris);
         }
         return view('warung.index')->with('data', $data);
     }
