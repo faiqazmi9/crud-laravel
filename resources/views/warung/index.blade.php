@@ -16,7 +16,8 @@
             <a href='{{ url('warung/create') }}' class="btn btn-primary">+ Tambah Data</a>
         </div>
 
-        <table class="table table-striped"> <!-- Tabel Data Warung -->
+        <table class="table table-striped">
+            <!-- Tabel Data Warung -->
             <caption>Tabel Data Warung</caption>
             <thead>
                 <tr>
@@ -28,19 +29,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1001</td>
-                    <td>Ani</td>
-                    <td>Ilmu Komputer</td>
-                    <td>
-                        <a href='' class="btn btn-warning btn-sm">Edit</a>
-                        <a href='' class="btn btn-danger btn-sm">Del</a>
-                    </td>
-                </tr>
+                <?php $i = $data->firstItem(); ?>
+                @foreach ($data as $item)
+                    <tr>
+                        <td>{{ $i }}</td>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->jenis }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>
+                            <a href='' class="btn btn-warning btn-sm">Edit</a>
+                            <a href='' class="btn btn-danger btn-sm">Del</a>
+                        </td>
+                    </tr>
+                    <?php $i++; ?>
+                @endforeach
             </tbody>
         </table>
-
+        {{ $data->links() }}
     </div>
     <!-- AKHIR DATA -->
 @endsection

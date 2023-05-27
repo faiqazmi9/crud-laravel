@@ -15,7 +15,8 @@ class warungController extends Controller
      */
     public function index()
     {
-        return view('warung.index');
+        $data = warung::orderBy('id', 'desc')->paginate(1);
+        return view('warung.index')->with('data', $data);
     }
 
     /**
