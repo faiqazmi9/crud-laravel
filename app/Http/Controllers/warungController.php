@@ -23,7 +23,7 @@ class warungController extends Controller
      */
     public function create()
     {
-        //
+        return view('warung.create');
     }
 
     /**
