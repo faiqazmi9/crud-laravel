@@ -12,6 +12,13 @@
 <body class="bg-light">
     <main class="container">
 
+        @if (Session::has('success'))
+            <div class="pt-3">
+                <div class="alert alert-succes">
+                    {{ Session::get('success') }}
+                </div>
+            </div>
+        @endif
         @yield('konten')
 
     </main>

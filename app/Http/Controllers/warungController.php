@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\warung;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class warungController extends Controller
 {
@@ -34,7 +36,28 @@ class warungController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Session::flash('id', $request->id);
+        Session::flash('jenis', $request->jenis);
+        Session::flash('nama', $request->nama);
+
+        $request->validate([
+            'id' => 'required|numeric|unique:warung,id',
+            'jenis' => 'required',
+            'nama' => 'required',
+        ], [
+            'id.required' => 'ID wajib diisi',
+            'id.numeric' => 'ID wajib berupa angka',
+            'id.unique' => 'ID yang diinputkan sudah ada dalam database',
+            'jenis.required' => 'Jenis wajib diisi',
+            'nama.required' => 'Nama wajib diisi'
+        ]);
+        $data = [
+            'id' => $request->id,
+            'jenis' => $request->jenis,
+            'nama' => $request->nama,
+        ];
+        warung::create($data);
+        return redirect()->to('warung')->with('success', 'Berhasil menambahkan data');
     }
 
     /**
