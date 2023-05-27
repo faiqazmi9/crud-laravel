@@ -80,7 +80,8 @@ class warungController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = warung::where('id', $id)->first();
+        return view('warung.edit')->with('data' , $data);
     }
 
     /**
@@ -92,7 +93,24 @@ class warungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'id' => 'required|numeric|unique:warung,id',
+            'jenis' => 'required',
+            'nama' => 'required',
+        ], [
+            'id.required' => 'ID wajib diisi',
+            'id.numeric' => 'ID wajib berupa angka',
+            'id.unique' => 'ID yang diinputkan sudah ada dalam database',
+            'jenis.required' => 'Jenis wajib diisi',
+            'nama.required' => 'Nama wajib diisi'
+        ]);
+        $data = [
+            'id' => $request->id,
+            'jenis' => $request->jenis,
+            'nama' => $request->nama,
+        ];
+        warung::update($data);
+        return redirect()->to('warung')->with('success', 'Berhasil mengedit data');
     }
 
     /**

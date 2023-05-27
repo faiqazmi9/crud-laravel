@@ -37,7 +37,7 @@
                         <td>{{ $item->jenis }}</td>
                         <td>{{ $item->nama }}</td>
                         <td>
-                            <a href='' class="btn btn-warning btn-sm">Edit</a>
+                            <a href='{{ url('warung/' . $item->id . '/edit') }}' class="btn btn-warning btn-sm">Edit</a>
                             <a href='' class="btn btn-danger btn-sm">Del</a>
                         </td>
                     </tr>
